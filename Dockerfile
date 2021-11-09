@@ -4,4 +4,4 @@ RUN apt-get update && apt-get -y upgrade
 
 WORKDIR /usr/local/tomcat
 COPY ./helloworld-ws.war /usr/local/tomcat/webapps/helloworld-ws.war
-EXPOSE 8080
+EXPOSE 8090
