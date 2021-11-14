@@ -21,7 +21,7 @@ spec:
       - name: myregistrykey
       containers:
       - name: hello
-        image:  nexus:8088/hello:latest# yourusername/privateimage:version
+        image:  nexus:8088/hello:latest # yourusername/privateimage:version
         ports:
         - containerPort: 8080
 
