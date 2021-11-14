@@ -5,59 +5,7 @@ metadata:
   name: dasetnik
   labels:
     name: dasetnik
-
----
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  namespace: dasetnik
-  name: jenkins
-rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["create","delete","get","list","patch","update","watch"]
-- apiGroups: [""]
-  resources: ["pods/exec"]
-  verbs: ["create","delete","get","list","patch","update","watch"]
-- apiGroups: [""]
-  resources: ["pods/log"]
-  verbs: ["get","list","watch"]
-- apiGroups: [""]
-  resources: ["events"]
-  verbs: ["watch"]
-- apiGroups: [""]
-  resources: ["secrets"]
-  verbs: ["get"]
-
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  namespace: dasetnik
-  name: jenkins
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: jenkins
-subjects:
-- kind: ServiceAccount
-  name: default
-
----
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  namespace: dasetnik
-  name: fabric8-rbac
-subjects:
-  - kind: ServiceAccount
-    name: default
-    namespace: default
-roleRef:
-  kind: ClusterRole
-  name: cluster-admin
-  apiGroup: rbac.authorization.k8s.io
-
+    
 ---
 apiVersion: apps/v1
 kind: Deployment
