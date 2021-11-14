@@ -1,16 +1,7 @@
 ---
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: dasetnik
-  labels:
-    name: dasetnik
-    
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: dasetnik
   name: hello-deployment
   labels:
     app: hello
@@ -38,7 +29,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: dasetnik
   name: hello-service
 spec:
   type: NodePort
